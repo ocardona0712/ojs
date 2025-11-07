@@ -30,6 +30,8 @@ export function renderTemplate(data) {
 
 function renderBlock(block, context) {
   return block.replace(/{{(.*?)}}/g, (_, key) => {
+    key = key.trim();
+    if(key==="this") return context;
     const value = resolvePath(context, key.trim());
     return value ?? "";
   });
