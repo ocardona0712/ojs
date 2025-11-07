@@ -1,6 +1,5 @@
 // version 1.0.0
 
-import { version } from "core-js";
 import { renderTemplate as _renderTemplate } from "./template.js";
 window.renderTemplate = _renderTemplate;
 
