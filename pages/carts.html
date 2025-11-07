@@ -1,0 +1,21 @@
+<div class="container my-5">
+  <h1 class="mb-4 text-center">Carritos</h1>
+  <div>
+    {{#each carts}}
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🛒 Carrito #{{id}}</h5>
+          <p><strong>Usuario:</strong> {{userId}}</p>
+          <p><strong>Total:</strong> ${{total}}</p>
+          <p><strong>Productos:</strong> {{totalProducts}}</p>
+          <button class="btn btn-success btn-sm mt-2"
+                  data-id="{{id}}"
+                  data-bs-toggle="modal"
+                  data-bs-target="#globalModal">
+            Ver detalles
+          </button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

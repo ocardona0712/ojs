@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <h1 class="mb-4 text-center">Recetas</h1>
+  <div>
+    {{#each recipes}}
+      <div class="card mb-3 shadow-sm">
+        <img src="{{image}}" class="card-img-top" alt="{{name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          {{#if instructions}}
+            <p class="card-text text-truncate">{{instructions}}</p>
+          {{/if}}
+          <button class="btn btn-primary btn-sm mt-2" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#globalModal">
+            Ver más
+          </button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
