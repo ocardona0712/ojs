@@ -1,12 +1,12 @@
 # API y CLI
 
-## Runtime (`ojs-framework`)
+## Runtime (`@ocardona0712/ojs-framework`)
 
 ```js
 import { start, navigate, renderTemplate, compile, escapeHtml } from "./ojs/index.js";
 ```
 
-> En las apps generadas, el framework se importa desde `./ojs/index.js`. `ojs dev` sirve esa ruta desde `node_modules/ojs-framework/src` y `ojs build` la copia a `dist/ojs/`.
+> En las apps generadas, el framework se importa desde `./ojs/index.js`. `ojs dev` sirve esa ruta desde `node_modules/@ocardona0712/ojs-framework/src` y `ojs build` la copia a `dist/ojs/`.
 
 ### `start(options?)`
 
@@ -44,7 +44,7 @@ Escapa `& < > " ' \` { }` para insertar texto de forma segura en HTML. Es el mis
 
 ## CLI `ojs`
 
-Viene incluido en `ojs-framework` y no tiene dependencias.
+Viene incluido en `@ocardona0712/ojs-framework` y no tiene dependencias.
 
 ```bash
 ojs dev [dir] [--port 5173]          # servidor de desarrollo

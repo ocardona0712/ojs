@@ -99,7 +99,7 @@ modal.innerHTML = `<p>${escapeHtml(recipe.name)}</p>`;
 `compile(plantilla, datos)` es una función pura que devuelve el HTML resultante. Sirve para tests o para renderizar fragmentos:
 
 ```js
-import { compile } from "ojs-framework/template";
+import { compile } from "@ocardona0712/ojs-framework/template";
 
 compile("Hola {{name}}", { name: "Ana" }); // "Hola Ana"
 ```

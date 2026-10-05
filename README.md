@@ -5,7 +5,7 @@
 **Micro-framework SPA declarativo con HTML, JavaScript nativo y un motor de plantillas minimalista.**
 Sin build. Sin dependencias en el navegador. Ideal para aprender arquitectura frontend.
 
-[![npm](https://img.shields.io/npm/v/ojs-framework?label=ojs-framework)](https://www.npmjs.com/package/ojs-framework)
+[![npm](https://img.shields.io/npm/v/@ocardona0712/ojs-framework?label=ojs-framework)](https://www.npmjs.com/package/@ocardona0712/ojs-framework)
 [![npm](https://img.shields.io/npm/v/create-ojs-app?label=create-ojs-app)](https://www.npmjs.com/package/create-ojs-app)
 [![CI](https://github.com/ocardona0712/ojs/actions/workflows/ci.yml/badge.svg)](https://github.com/ocardona0712/ojs/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -101,7 +101,7 @@ Es un monorepo con npm workspaces:
 
 | Ruta | Paquete npm | Descripción |
 | --- | --- | --- |
-| [`packages/ojs-framework`](packages/ojs-framework) | [`ojs-framework`](https://www.npmjs.com/package/ojs-framework) | El runtime del framework + CLI `ojs` |
+| [`packages/ojs-framework`](packages/ojs-framework) | [`@ocardona0712/ojs-framework`](https://www.npmjs.com/package/@ocardona0712/ojs-framework) | El runtime del framework + CLI `ojs` |
 | [`packages/create-ojs-app`](packages/create-ojs-app) | [`create-ojs-app`](https://www.npmjs.com/package/create-ojs-app) | Generador de proyectos |
 | [`examples/demo`](examples/demo) | — | App de ejemplo: recetas y carritos con [DummyJSON](https://dummyjson.com) |
 

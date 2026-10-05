@@ -1,5 +1,5 @@
 {
-  "name": "ojs-framework",
+  "name": "@ocardona0712/ojs-framework",
   "version": "1.1.0",
   "description": "Micro-framework SPA declarativo con HTML, JavaScript nativo y un motor de plantillas minimalista. Sin build, sin dependencias.",
   "type": "module",
@@ -17,6 +17,9 @@
     "src",
     "bin"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18"
   },

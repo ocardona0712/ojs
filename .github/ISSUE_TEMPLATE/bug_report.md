@@ -18,7 +18,7 @@ labels: bug
 
 ## Entorno
 
-- Versión de `ojs-framework`:
+- Versión de `@ocardona0712/ojs-framework`:
 - Navegador:
 - Node.js (si aplica):
 - Sistema operativo:

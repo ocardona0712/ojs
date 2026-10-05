@@ -139,7 +139,7 @@ async function main() {
       preview: "ojs preview"
     },
     dependencies: {
-      "ojs-framework": pkg.ojsFrameworkVersion
+      "@ocardona0712/ojs-framework": pkg.ojsFrameworkVersion
     }
   };
   await writeFile(join(targetDir, "package.json"), JSON.stringify(appPkg, null, 2) + "\n");

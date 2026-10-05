@@ -14,4 +14,4 @@ Incluye una descripción del problema, los pasos para reproducirlo y el impacto.
 
 ## Nota sobre plantillas
 
-Desde `ojs-framework` 1.1.0, `{{var}}` escapa el HTML automáticamente. `{{{var}}}` inserta HTML sin escapar a propósito: usarlo con contenido no confiable no se considera una vulnerabilidad del framework. Más detalles en [docs/templates.md](docs/templates.md#-seguridad).
+Desde `@ocardona0712/ojs-framework` 1.1.0, `{{var}}` escapa el HTML automáticamente. `{{{var}}}` inserta HTML sin escapar a propósito: usarlo con contenido no confiable no se considera una vulnerabilidad del framework. Más detalles en [docs/templates.md](docs/templates.md#-seguridad).

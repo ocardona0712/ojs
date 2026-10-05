@@ -52,7 +52,7 @@ También puedes usar Ojs sin instalar nada, importándolo desde jsDelivr:
 
 ```html
 <script type="module">
-  import { start } from "https://cdn.jsdelivr.net/npm/ojs-framework@1/src/index.js";
+  import { start } from "https://cdn.jsdelivr.net/npm/@ocardona0712/ojs-framework@1/src/index.js";
   window.addEventListener("DOMContentLoaded", () => start({ defaultPage: "home" }));
 </script>
 ```

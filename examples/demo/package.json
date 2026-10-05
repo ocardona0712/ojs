@@ -9,6 +9,6 @@
     "preview": "ojs preview"
   },
   "dependencies": {
-    "ojs-framework": "^1.1.0"
+    "@ocardona0712/ojs-framework": "^1.1.0"
   }
 }

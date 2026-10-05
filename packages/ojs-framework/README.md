@@ -1,4 +1,4 @@
-# ojs-framework
+# @ocardona0712/ojs-framework
 
 Runtime y CLI de **[Ojs](https://github.com/ocardona0712/ojs)**, un micro-framework SPA declarativo con HTML, JavaScript nativo y un motor de plantillas minimalista. Sin build y sin dependencias.
 
@@ -11,7 +11,7 @@ npx create-ojs-app mi-app
 ## Instalación manual
 
 ```bash
-npm install ojs-framework
+npm install @ocardona0712/ojs-framework
 ```
 
 `index.html`:
@@ -42,7 +42,7 @@ npm install ojs-framework
 O directamente desde un CDN, sin instalar nada:
 
 ```js
-import { start } from "https://cdn.jsdelivr.net/npm/ojs-framework@1/src/index.js";
+import { start } from "https://cdn.jsdelivr.net/npm/@ocardona0712/ojs-framework@1/src/index.js";
 ```
 
 ## API

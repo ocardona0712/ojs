@@ -28,7 +28,7 @@ for (const template of ["basic", "demo"]) {
 
       const pkg = JSON.parse(readFileSync(join(app, "package.json"), "utf8"));
       assert.equal(pkg.name, "mi-app");
-      assert.ok(pkg.dependencies["ojs-framework"]);
+      assert.ok(pkg.dependencies["@ocardona0712/ojs-framework"]);
       assert.ok(existsSync(join(app, ".gitignore")));
       assert.ok(existsSync(join(app, "index.html")));
       assert.ok(!readFileSync(join(app, "index.html"), "utf8").includes("__APP_NAME__"));
