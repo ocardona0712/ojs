@@ -1,0 +1,43 @@
+name: Release
+
+# Publica en npm los paquetes cuya versión aún no existe en el registro.
+# Requiere el secreto NPM_TOKEN (token "Automation" o "Granular" con permiso de publicación).
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # necesario para --provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+      # Copia examples/demo a create-ojs-app/templates/demo (no depende de que prepack se ejecute)
+      - run: node packages/create-ojs-app/scripts/sync-templates.js
+
+      - name: Publicar paquetes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          for dir in packages/ojs-framework packages/create-ojs-app; do
+            name=$(node -p "require('./$dir/package.json').name")
+            version=$(node -p "require('./$dir/package.json').version")
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "↷ $name@$version ya está publicado, se omite"
+            else
+              echo "↑ Publicando $name@$version"
+              npm publish --workspace "$dir" --access public --provenance
+            fi
+          done

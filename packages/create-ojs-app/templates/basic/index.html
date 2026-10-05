@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>__APP_NAME__</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module">
+    import { start } from "./ojs/index.js";
+    window.addEventListener("DOMContentLoaded", () => start({ defaultPage: "home" }));
+  </script>
+</head>
+<body>
+  <app-header></app-header>
+  <app-main></app-main>
+  <app-footer></app-footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<section class="container">
+  <h1>Hola, {{user}} 👋</h1>
+  <p>Edita <code>pages/home.html</code> y <code>scripts/home.js</code> para empezar.</p>
+
+  {{#if features}}
+    <h2>Lo que incluye Ojs</h2>
+    <ul>
+      {{#each features}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <button class="btn" data-page="about" data-params='{"from":"home"}'>Ir a "Acerca de"</button>
+</section>

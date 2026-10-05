@@ -1,0 +1,43 @@
+{
+  "name": "ojs-framework",
+  "version": "1.1.0",
+  "description": "Micro-framework SPA declarativo con HTML, JavaScript nativo y un motor de plantillas minimalista. Sin build, sin dependencias.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./core": "./src/core.js",
+    "./template": "./src/template.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "ojs": "bin/ojs.js"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "spa",
+    "framework",
+    "micro-framework",
+    "template",
+    "vanilla-js",
+    "no-build",
+    "ojs"
+  ],
+  "author": "Omar Andres Cardona (El ODev)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocardona0712/ojs.git",
+    "directory": "packages/ojs-framework"
+  },
+  "homepage": "https://github.com/ocardona0712/ojs#readme",
+  "bugs": {
+    "url": "https://github.com/ocardona0712/ojs/issues"
+  }
+}

@@ -1,176 +1,123 @@
-# 🧩 Ojs — Mini Framework SPA
-**Versión:** 1.0.0
+<div align="center">
 
-**Ojs** es un micro-framework declarativo para construir aplicaciones SPA con HTML, JavaScript y un motor de plantillas minimalista. Diseñado para enseñar arquitectura frontend con separación de responsabilidades, navegación sin recarga y renderizado dinámico.
+# 🧩 Ojs
 
-## 🚀 Características
+**Micro-framework SPA declarativo con HTML, JavaScript nativo y un motor de plantillas minimalista.**
+Sin build. Sin dependencias en el navegador. Ideal para aprender arquitectura frontend.
 
-- 🔗 Navegación SPA con `window.location.hash`
-- 🧠 Motor de plantillas con `{{variable}}`, `{{#if}}`, `{{#each}}`
-- 📦 Carga modular de vistas y scripts
-- 🧩 Componentes fijos: `<app-header>`, `<app-main>`, `<app-footer>`
-- 📤 Modal global para mostrar detalles
-- 🧭 Paso de parámetros entre vistas
-- 🛑 Layout opcional con `<!-- no-layout -->`
+[![npm](https://img.shields.io/npm/v/ojs-framework?label=ojs-framework)](https://www.npmjs.com/package/ojs-framework)
+[![npm](https://img.shields.io/npm/v/create-ojs-app?label=create-ojs-app)](https://www.npmjs.com/package/create-ojs-app)
+[![CI](https://github.com/ocardona0712/ojs/actions/workflows/ci.yml/badge.svg)](https://github.com/ocardona0712/ojs/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## 📦 Estructura
-
-    framework/ → núcleo del sistema 
-    components/ → header y footer reutilizables
-    css/ → hojas de cascada de estilos
-    pages/ → vistas HTML 
-    scripts/ → lógica por vista 
-    index.html → punto de entrada
-
-## 🧭 Navegación SPA y paso de parámetros
-
-Ojs utiliza `window.location.hash` para navegar entre páginas sin recargar el navegador. Cada vista se define como un archivo HTML en la carpeta `pages/`, y su lógica asociada vive en `scripts/`.
-
-### 🔗 Navegación básica
-
-Para navegar a una vista, usa un enlace con el atributo `data-page`:
-
-```html
-<a href="#recipes" data-page="recipes">Ver recetas</a>
-```
-Esto carga pages/recipes.html en el contenedor <app-main> y ejecuta scripts/recipes.js.
-
-### 📤 Enviar parámetros entre vistas
-Puedes enviar datos internos entre vistas usando el atributo data-params:
-
-```html
-<a href="#params" data-page="params" data-params='{"user":"Ana","role":"admin"}'>Ver parámetros</a>
-
-```
-El framework convierte ese JSON en un objeto params y lo pasa a la función init() del script correspondiente:
-
-```js
-export function init(params) {
-  console.log(params.user); // "Ana"
-  console.log(params.role); // "admin"
-}
-```
-### 🛑 Consideraciones
-* Los parámetros se pasan como JSON en data-params
-* Solo se usan internamente, no se reflejan en la URL
-* Se pueden usar para personalizar vistas, cargar datos específicos o controlar el layout
-
-## 🧠 Uso del motor de plantillas
-
-El motor de plantillas de Ojs permite renderizar HTML dinámico usando sintaxis declarativa. Se basa en tres directivas principales:
+</div>
 
 ---
 
-### 🔹 Interpolación simple: `{{variable}}`
+## 🚀 Empezar en 30 segundos
 
-Reemplaza una variable por su valor en el objeto de datos:
-
-```html
-<p>Hola {{user}}</p>
+```bash
+npx create-ojs-app mi-app
+cd mi-app
+npm install
+npm run dev
 ```
-### 🔹 Condicional: {{#if variable}}...{{/if}}
-Muestra contenido solo si la variable es verdadera o existe:
 
-```html
-{{#if isAdmin}}
-  <p>Bienvenida administradora</p>
-{{/if}}
+Abre <http://localhost:5173> y listo.
+
+🔴 **Demo en vivo:** <https://ocardona0712.github.io/ojs/>
+
+¿Quieres ver un ejemplo completo con API, tarjetas y modales?
+
+```bash
+npx create-ojs-app mi-demo --template demo
 ```
-### 🔹 Iteración: {{#each array}}...{{/each}}
-Repite un bloque por cada elemento del arreglo:
+
+## ✨ Características
+
+- 🔗 Navegación SPA con `window.location.hash`
+- 🧠 Motor de plantillas con `{{variable}}`, `{{#if}}` y `{{#each}}`
+- 📦 Carga modular de vistas (`pages/`) y su lógica (`scripts/`)
+- 🧩 Layout con `<app-header>`, `<app-main>` y `<app-footer>`
+- 🧭 Paso de parámetros entre vistas con `data-params`
+- 🛑 Vistas sin layout con `<!-- no-layout -->`
+- ⚡ CLI sin dependencias: `ojs dev`, `ojs build`, `ojs preview`
+
+## 📦 Estructura de una app Ojs
+
+```
+mi-app/
+├── components/      → header.html y footer.html
+├── css/             → estilos
+├── pages/           → vistas HTML (#home → pages/home.html)
+├── scripts/         → lógica por vista (scripts/home.js → export function init())
+├── index.html       → punto de entrada
+└── package.json
+```
+
+## 🧪 Un vistazo
+
+**`pages/products.html`**
 
 ```html
+<h1>Productos</h1>
 <ul>
   {{#each products}}
-    <li>{{name}} - ${{price}}</li>
+    <li>{{title}} — ${{price}} {{#if discount}}🔥{{/if}}</li>
   {{/each}}
 </ul>
 ```
-### 🧩 Contexto dentro de {{#each}}
-Dentro del bloque {{#each}}, cada {{variable}} se refiere al elemento actual del arreglo. No necesitas prefijos como item.name, solo {{name}}.
 
-### 🛠️ Buenas prácticas
-Usa nombres de variables claros y consistentes
-
-Evita lógica compleja dentro de las plantillas
-
-Mantén el HTML limpio y declarativo
-
-No mezcles renderTemplate() con manipulación manual del DOM
-
-## 📄 Estructura de los scripts por vista
-
-Cada vista en Ojs tiene un archivo HTML en `pages/` y un archivo JavaScript en `scripts/` con el mismo nombre. El script define la lógica específica de esa vista y debe exportar una función llamada `init()`.
-
----
-
-### 🧩 Convención
-
-- `pages/recipes.html` → vista declarativa
-- `scripts/recipes.js` → lógica asociada
-
----
-
-### 🧠 La función `init(params)`
-
-El framework llama automáticamente a `init(params)` cuando se carga la vista. Esta función recibe los parámetros enviados desde el enlace (si existen) y es responsable de:
-
-- Obtener datos (por ejemplo, con `fetch`)
-- Llamar a `window.renderTemplate(data)`
-- Registrar eventos (como clics en botones)
-
----
-
-### 🧪 Ejemplo: `scripts/recipes.js`
+**`scripts/products.js`**
 
 ```js
 export async function init(params) {
-  const res = await fetch("https://dummyjson.com/recipes");
-  const data = await res.json();
-
-  window.renderTemplate({ recipes: data.recipes });
-
-  document.querySelectorAll("[data-id]").forEach(btn => {
-    btn.addEventListener("click", e => {
-      const id = e.target.dataset.id;
-      showRecipeDetail(id);
-    });
-  });
-}
-
-function showRecipeDetail(id) {
-  fetch(`https://dummyjson.com/recipes/${id}`)
-    .then(res => res.json())
-    .then(recipe => {
-      document.querySelector("#modalTitle").textContent = recipe.name;
-      document.querySelector("#modalBody").innerHTML = `
-        <img src="${recipe.image}" class="img-fluid mb-3 rounded" alt="${recipe.name}">
-        <p><strong>Categoría:</strong> ${recipe.cuisine}</p>
-        <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
-        <p><strong>Instrucciones:</strong> ${recipe.instructions}</p>
-      `;
-    });
+  const res = await fetch("https://dummyjson.com/products");
+  const { products } = await res.json();
+  window.renderTemplate({ products });
 }
 ```
-### ✅ Buenas prácticas
-- Usa async/await para claridad en la carga de datos
-- Llama a renderTemplate() solo después de tener los datos
-- Registra eventos después del renderizado
-- Mantén la lógica encapsulada por vista
-- Evita manipular el DOM directamente fuera de init()
 
----
+**Enlace desde cualquier vista**
 
-## 📚 Licencia
+```html
+<a href="#products" data-page="products" data-params='{"category":"phones"}'>Ver productos</a>
+```
 
-Este proyecto está licenciado bajo los términos de la **MIT License**, lo que significa que puedes usarlo, modificarlo y compartirlo libremente con fines educativos, personales o comerciales.
+## 📚 Documentación
 
-Para más detalles, consulta el archivo `LICENSE`.
+| Guía | Contenido |
+| --- | --- |
+| [Primeros pasos](docs/getting-started.md) | Crear, ejecutar y desplegar una app |
+| [Navegación y parámetros](docs/routing.md) | `data-page`, `data-params`, `navigate()`, `no-layout` |
+| [Motor de plantillas](docs/templates.md) | `{{variable}}`, `{{#if}}`, `{{#each}}`, `{{this}}` |
+| [Vistas y scripts](docs/views.md) | La función `init(params)` y buenas prácticas |
+| [API y CLI](docs/api.md) | `start()`, `navigate()`, `renderTemplate()`, `ojs dev/build/preview` |
+| [Despliegue](docs/deploy.md) | GitHub Pages, Netlify, Vercel, CDN |
 
----
+## 🗂️ Este repositorio
 
-## ✍️ Autor
+Es un monorepo con npm workspaces:
 
-Desarrollado con pasión por **El ODev**  
+| Ruta | Paquete npm | Descripción |
+| --- | --- | --- |
+| [`packages/ojs-framework`](packages/ojs-framework) | [`ojs-framework`](https://www.npmjs.com/package/ojs-framework) | El runtime del framework + CLI `ojs` |
+| [`packages/create-ojs-app`](packages/create-ojs-app) | [`create-ojs-app`](https://www.npmjs.com/package/create-ojs-app) | Generador de proyectos |
+| [`examples/demo`](examples/demo) | — | App de ejemplo: recetas y carritos con [DummyJSON](https://dummyjson.com) |
 
----
+### Correr el ejemplo localmente
+
+```bash
+git clone https://github.com/ocardona0712/ojs.git
+cd ojs
+npm install
+npm run demo
+```
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Lee la [guía de contribución](CONTRIBUTING.md) y el [código de conducta](CODE_OF_CONDUCT.md).
+
+## 📄 Licencia
+
+[MIT](LICENSE) © Omar Andres Cardona — **El ODev**

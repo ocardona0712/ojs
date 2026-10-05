@@ -1,3 +1,5 @@
+import { escapeHtml as e } from "../ojs/index.js";
+
 export async function init() {
   const res = await fetch("https://dummyjson.com/carts");
   const data = await res.json();
@@ -18,11 +20,11 @@ function showCartDetail(id) {
     .then(cart => {
       document.querySelector("#modalTitle").textContent = `Carrito #${cart.id}`;
       document.querySelector("#modalBody").innerHTML = `
-        <p><strong>ID Usuario:</strong> ${cart.userId}</p>
-        <p><strong>Total:</strong> $${cart.total}</p>
+        <p><strong>ID Usuario:</strong> ${e(cart.userId)}</p>
+        <p><strong>Total:</strong> $${e(cart.total)}</p>
         <p><strong>Productos:</strong></p>
         <ul>
-          ${cart.products.map(p => `<li>${p.title} — ${p.quantity} u. ($${p.price} c/u)</li>`).join("")}
+          ${cart.products.map(p => `<li>${e(p.title)} — ${e(p.quantity)} u. ($${e(p.price)} c/u)</li>`).join("")}
         </ul>
       `;
     });

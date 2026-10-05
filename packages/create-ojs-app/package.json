@@ -1,0 +1,39 @@
+{
+  "name": "create-ojs-app",
+  "version": "1.0.0",
+  "description": "Crea una aplicación Ojs con un solo comando: npx create-ojs-app mi-app",
+  "type": "module",
+  "bin": {
+    "create-ojs-app": "index.js"
+  },
+  "files": [
+    "index.js",
+    "templates"
+  ],
+  "scripts": {
+    "prepack": "node scripts/sync-templates.js"
+  },
+  "ojsFrameworkVersion": "^1.1.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ojs",
+    "create",
+    "scaffold",
+    "starter",
+    "spa",
+    "cli"
+  ],
+  "author": "Omar Andres Cardona (El ODev)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocardona0712/ojs.git",
+    "directory": "packages/create-ojs-app"
+  },
+  "homepage": "https://github.com/ocardona0712/ojs#readme",
+  "bugs": {
+    "url": "https://github.com/ocardona0712/ojs/issues"
+  }
+}

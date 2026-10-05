@@ -1,0 +1,16 @@
+{
+  "name": "ojs-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "demo": "npm run dev -w examples/demo",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

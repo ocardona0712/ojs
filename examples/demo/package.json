@@ -1,0 +1,14 @@
+{
+  "name": "ojs-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ojs dev",
+    "build": "ojs build",
+    "preview": "ojs preview"
+  },
+  "dependencies": {
+    "ojs-framework": "^1.1.0"
+  }
+}

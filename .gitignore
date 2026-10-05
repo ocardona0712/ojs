@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.tgz
+.DS_Store
+# Generada en prepack desde examples/demo
+packages/create-ojs-app/templates/demo/
