@@ -14,7 +14,7 @@ npx create-ojs-app mi-app
 npm install @ocardona0712/ojs-framework
 ```
 
-`index.html`:
+`src/index.html`:
 
 ```html
 <script type="module">

@@ -4,6 +4,14 @@ Todos los cambios relevantes se documentan aquí. El formato sigue [Keep a Chang
 
 ## [Unreleased]
 
+## @ocardona0712/ojs-framework 1.2.0 / create-ojs-app 1.1.0
+
+### Cambiado
+
+- Las apps nuevas guardan todo su código en `src/` (`index.html`, `components/`, `pages/`, `scripts/`, `css/`). En la raíz quedan solo `package.json`, `README.md`, `node_modules/` y `dist/`.
+- `ojs dev`, `ojs build` y `ojs preview` usan `src/` si existe `src/index.html`. Si no, siguen usando la raíz del proyecto, así que las apps creadas con versiones anteriores funcionan sin cambios.
+- `dist/` se genera siempre en la raíz del proyecto.
+
 ## @ocardona0712/ojs-framework 1.1.0 / create-ojs-app 1.0.0
 
 ### Añadido

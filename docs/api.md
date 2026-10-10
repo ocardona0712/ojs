@@ -52,7 +52,9 @@ ojs build [dir] [--out dist]         # build estático
 ojs preview [dir] [--port 4173]      # sirve dist/
 ```
 
-`ojs build` copia el proyecto a `dist/`, excepto `node_modules`, `dist`, `package*.json` y los archivos ocultos, y agrega el framework en `dist/ojs/`.
+Todos los comandos toman el código de `[dir]/src/`. Si no existe `src/index.html`, usan `[dir]` directamente (estructura de versiones anteriores). `dist/` siempre se crea en la raíz del proyecto.
+
+`ojs build` copia el código a `dist/`, excepto `node_modules`, `dist`, `package*.json` y los archivos ocultos, y agrega el framework en `dist/ojs/`.
 
 ## CLI `create-ojs-app`
 

@@ -35,6 +35,8 @@ Uso:
   ojs build [dir]    Genera una versión estática lista para desplegar en dist/
   ojs preview [dir]  Sirve la carpeta dist/ generada por build
 
+El código de la app se toma de [dir]/src/. Si no existe src/index.html, se usa [dir].
+
 Opciones:
   --port <n>   Puerto del servidor (dev: 5173, preview: 4173)
   --out <dir>  Carpeta de salida de build (por defecto dist)
@@ -123,10 +125,18 @@ async function build(root, outDir) {
   console.log(`\n  Build listo en ${relative(process.cwd(), outDir) || outDir}\n`);
 }
 
+// El código de la app vive en src/. Si no existe src/index.html se usa la raíz del
+// proyecto, para seguir soportando apps creadas antes de esta convención.
+function sourceDir(projectDir) {
+  const src = join(projectDir, "src");
+  return existsSync(join(src, "index.html")) ? src : projectDir;
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const [command, dir = "."] = args._;
-  const root = resolve(dir);
+  const project = resolve(dir);
+  const root = sourceDir(project);
 
   if (args.version) {
     const pkg = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
@@ -143,10 +153,10 @@ async function main() {
       serve(root, { port: args.port || 5173, framework: true });
       break;
     case "build":
-      await build(root, resolve(root, args.out || "dist"));
+      await build(root, resolve(project, args.out || "dist"));
       break;
     case "preview": {
-      const out = resolve(root, args.out || "dist");
+      const out = resolve(project, args.out || "dist");
       if (!existsSync(out)) throw new Error(`No existe ${out}. Ejecuta primero: ojs build`);
       serve(out, { port: args.port || 4173, framework: false });
       break;

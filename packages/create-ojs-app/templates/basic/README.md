@@ -13,15 +13,17 @@ npm run preview  # sirve dist/ localmente
 ## Estructura
 
 ```
-components/   header y footer
-css/          estilos
-pages/        vistas HTML (una por ruta: #home → pages/home.html)
-scripts/      lógica por vista (scripts/home.js exporta init(params))
-index.html    punto de entrada
+src/
+├── components/   header y footer
+├── css/          estilos
+├── pages/        vistas HTML (una por ruta: #home → src/pages/home.html)
+├── scripts/      lógica por vista (src/scripts/home.js exporta init(params))
+└── index.html    punto de entrada
+dist/             generado por npm run build
 ```
 
 ## Crear una vista nueva
 
-1. Crea `pages/contacto.html`
-2. (Opcional) Crea `scripts/contacto.js` con `export function init(params) { ... }`
+1. Crea `src/pages/contacto.html`
+2. (Opcional) Crea `src/scripts/contacto.js` con `export function init(params) { ... }`
 3. Enlázala: `<a href="#contacto" data-page="contacto">Contacto</a>`

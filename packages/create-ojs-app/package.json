@@ -1,6 +1,6 @@
 {
   "name": "create-ojs-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Crea una aplicación Ojs con un solo comando: npx create-ojs-app mi-app",
   "type": "module",
   "bin": {
@@ -13,7 +13,7 @@
   "scripts": {
     "prepack": "node scripts/sync-templates.js"
   },
-  "ojsFrameworkVersion": "^1.1.0",
+  "ojsFrameworkVersion": "^1.2.0",
   "engines": {
     "node": ">=18"
   },

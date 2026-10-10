@@ -45,23 +45,28 @@ npm run dev
 
 ```
 mi-app/
-├── components/
-│   ├── header.html
-│   └── footer.html
-├── css/styles.css
-├── pages/
-│   ├── home.html
-│   └── about.html
-├── scripts/
-│   ├── home.js
-│   └── about.js
-├── index.html
+├── src/                 ← todo el código de tu app
+│   ├── components/
+│   │   ├── header.html
+│   │   └── footer.html
+│   ├── css/styles.css
+│   ├── pages/
+│   │   ├── home.html
+│   │   └── about.html
+│   ├── scripts/
+│   │   ├── home.js
+│   │   └── about.js
+│   └── index.html
+├── dist/                ← generado por npm run build (no se edita)
+├── node_modules/
 └── package.json
 ```
 
+> Las apps creadas con versiones anteriores, que tienen `index.html` en la raíz, siguen funcionando: `ojs` usa `src/` si existe `src/index.html` y, si no, la raíz del proyecto.
+
 ## Tu primera vista
 
-1. Crea `pages/contacto.html`:
+1. Crea `src/pages/contacto.html`:
 
    ```html
    <section class="container">
@@ -70,7 +75,7 @@ mi-app/
    </section>
    ```
 
-2. Crea `scripts/contacto.js`:
+2. Crea `src/scripts/contacto.js`:
 
    ```js
    export function init(params) {
@@ -78,7 +83,7 @@ mi-app/
    }
    ```
 
-3. Agrega el enlace en `components/header.html`:
+3. Agrega el enlace en `src/components/header.html`:
 
    ```html
    <a href="#contacto" data-page="contacto">Contacto</a>

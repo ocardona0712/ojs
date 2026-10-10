@@ -64,7 +64,7 @@ function toPackageName(name) {
 function findTemplate(name) {
   for (const dir of TEMPLATE_DIRS) {
     const path = join(dir, name);
-    if (existsSync(join(path, "index.html"))) return path;
+    if (existsSync(join(path, "src", "index.html"))) return path;
   }
   return null;
 }

@@ -25,8 +25,6 @@ npm run dev
 
 Abre <http://localhost:5173> y listo.
 
-🔴 **Demo en vivo:** <https://ocardona0712.github.io/ojs/>
-
 ¿Quieres ver un ejemplo completo con API, tarjetas y modales?
 
 ```bash
@@ -47,17 +45,19 @@ npx create-ojs-app mi-demo --template demo
 
 ```
 mi-app/
-├── components/      → header.html y footer.html
-├── css/             → estilos
-├── pages/           → vistas HTML (#home → pages/home.html)
-├── scripts/         → lógica por vista (scripts/home.js → export function init())
-├── index.html       → punto de entrada
+├── src/
+│   ├── components/  → header.html y footer.html
+│   ├── css/         → estilos
+│   ├── pages/       → vistas HTML (#home → pages/home.html)
+│   ├── scripts/     → lógica por vista (scripts/home.js → export function init())
+│   └── index.html   → punto de entrada
+├── dist/            → generado por npm run build
 └── package.json
 ```
 
 ## 🧪 Un vistazo
 
-**`pages/products.html`**
+**`src/pages/products.html`**
 
 ```html
 <h1>Productos</h1>
@@ -68,7 +68,7 @@ mi-app/
 </ul>
 ```
 
-**`scripts/products.js`**
+**`src/scripts/products.js`**
 
 ```js
 export async function init(params) {

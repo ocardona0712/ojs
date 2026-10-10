@@ -1,10 +1,10 @@
 # Vistas y scripts
 
-Cada vista tiene un HTML en `pages/` y, opcionalmente, un módulo JavaScript en `scripts/` **con el mismo nombre**:
+Cada vista tiene un HTML en `src/pages/` y, opcionalmente, un módulo JavaScript en `src/scripts/` **con el mismo nombre**:
 
 ```
-pages/recipes.html   → vista declarativa
-scripts/recipes.js   → lógica asociada
+src/pages/recipes.html   → vista declarativa
+src/scripts/recipes.js   → lógica asociada
 ```
 
 Si no hay script, la vista se muestra tal cual.

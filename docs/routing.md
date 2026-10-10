@@ -1,6 +1,6 @@
 # Navegación y parámetros
 
-Ojs usa `window.location.hash` para navegar sin recargar el navegador. Cada ruta corresponde a un archivo:
+Ojs usa `window.location.hash` para navegar sin recargar el navegador. Cada ruta corresponde a un archivo dentro de `src/`:
 
 | URL | Vista | Script (opcional) |
 | --- | --- | --- |
